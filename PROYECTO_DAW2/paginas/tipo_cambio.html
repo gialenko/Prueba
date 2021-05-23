@@ -1,0 +1,568 @@
+<html>
+<header lang="es-Es">
+<title>Inicio</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</header>
+<style>
+*{padding: 0;margin: 0px;font-family: 'Roboto', sans-serif;}
+
+/*-----------------------<I>Cuerpo y nav de la página<I>--------------------*/
+
+body{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    overflow-x: hidden;}
+nav{
+    width: 100vw;
+    position: fixed;
+    height: 10vh;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    z-index: 1000;
+    background-color: rgba(2, 66, 240, 0.863);
+}
+#logo{
+    width: 20vw;
+    height: 10vh;
+    position: relative;
+}
+#menu{
+    width: 80vw;
+    height: 10vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#logo >img{
+width: 100%;
+height: 100%;
+border-radius: 50%;
+}
+
+ul{
+    display: inline-flex;
+    list-style: none;
+}
+
+li{
+    min-width: 13vw;
+    width: 12vw;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 8vh;
+}
+
+li>a{
+    color: white;
+    text-align: center;
+}
+
+a:hover{
+    cursor: pointer;
+}
+
+/*-----------------------<F>Cuerpo y nav de la página<F>--------------------*/
+
+/*-----------------------<I>Primera Sección<I>--------------------*/
+
+#baner{
+    position: absolute;
+    width: 100vw;
+    height: 60vh;
+    display: flex;
+    margin-top: 10vh;
+    top: 0;
+}
+
+#information{
+    width: 50vw;
+    height: 60vh;
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+
+#logo_tipo_cambio{
+    background-image: url(../img/bank-note-209104_640.jpg);
+    background-size: 100vw 60vh;
+    position: absolute;
+    height: 60vh;
+    width: 100%;
+}
+
+#baner_title{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: white;
+}
+
+/*-----------------------<F>Primera Sección<F>--------------------*/
+
+#info{
+    position: relative;
+    width: 100vw;
+    height: auto;
+    align-items: flex-start;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    top: 50vh;
+}
+
+#info_title{
+    position: relative;
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#info_title > h1{
+  background-image: linear-gradient(75deg, orange, rgba(2, 66, 240, 0.863));
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent; 
+}
+
+#info_content{
+    position: relative;
+    height: 50vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: wrap;
+    
+}
+
+.info_card{
+    position: relative;
+    height: 40vh;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    /*border:solid blue 1px;*/
+    border: solid orange 1px;
+    border-radius: 4%;
+    margin:3%;
+}
+
+.info_card_title{
+    position: relative;
+    height: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*background-color: rgba(2, 66, 240, 0.863);*/
+    background-color:orange;
+}
+
+.info_card_title > h2 {
+    color: white;
+}
+
+.info_card_body{
+    position: relative;
+    height: 60%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.items{
+    position: relative;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.items_title{
+    position: relative;
+    height: 30%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+
+.items_body{
+    position: relative;
+    height: 70%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+
+.info_card_footer{
+    position: relative;
+    height: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*background-color: rgba(2, 66, 240, 0.863);*/
+    background-color: orange;
+}
+
+
+.items_body > h2, .items_title > h2, .info_card_footer > h2{
+   /* color:rgba(2, 66, 240, 0.863)*/
+   color: orange
+}
+
+.info_card_footer > h2{
+    color: white;
+}
+
+footer{
+    width: 100vw;
+    height: 20vh;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    overflow-x: hidden;
+    top: 190vh;
+    background-color: rgba(2, 66, 240, 0.863);
+}
+
+
+.footer_section{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer_section:nth-child(1){
+    border-right: white solid;
+}
+
+.footer_section:nth-child(3){
+    border-left: white solid;
+}
+
+#social_links{
+    position: relative;
+    height: 50%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    
+}
+
+#social_links > i{
+    margin: 10px;
+}
+
+#promo{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#promo_title{
+    height: 30%;
+    width: 100%;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+#promo_title > p{
+    color: white;
+}
+
+#promo_email{
+    height: 30%;
+    width: 100%;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+#promo_email > input{
+    outline: none;
+    height: 80%;
+    width: 50%;
+    text-align: center;
+    color: orange;
+}
+
+
+::-webkit-input-placeholder {
+   text-align: center;
+}
+
+::-webkit-scrollbar{
+    background-color: white;
+    width: 0.5vw;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: orange;
+}
+
+
+</style>
+<body>
+    <nav>
+        <div id="logo">
+            <img src="../img/logo_3.png">
+        </div>
+        <div id="menu">
+            <ul>
+                <li><a class="li">Inicio</a></li>
+                <li><a class="li">Préstamos</a></li>
+                <li><a class="li">Abre tu Cuenta</a></li>
+                <li><a class="li">Conócenos</a></li>
+                <li><a class="li">Trabaja con Nosotros</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div id="baner">
+        <div id="logo_tipo_cambio">
+            <h1 id="baner_title">Tipos de Cambio</h1>
+        </div>
+    </div>
+
+    <div id="info">
+        <div id="info_title">
+            <h1>Conoce aquí los últimos tipos de cambio</h1>
+        </div>
+        <div id="info_content">
+            <div class="info_card">
+                <div class="info_card_title">
+                    <h2>DÓLARES $</h2>
+                </div>
+                <div class="info_card_body">
+                    <div class="items">
+                        <div class="items_title">
+                            <h2>Compra</h2>
+                        </div>
+                        <div class="items_body">
+                            <h2>S/. 3.5</h2>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <div class="items_title">
+                            <h2>Venta</h2>
+                        </div>
+                        <div class="items_body">
+                            <h2>S/. 3.5</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="info_card_footer">
+                    <h2>Fecha 01/01/2021</h2>
+                </div>
+            </div>
+            <div class="info_card">
+                <div class="info_card_title">
+                    <h2>EUROS €</h2>
+                </div>
+                <div class="info_card_body">
+                    <div class="items">
+                        <div class="items_title">
+                            <h2>Compra</h2>
+                        </div>
+                        <div class="items_body">
+                            <h2>S/. 3.9</h2>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <div class="items_title">
+                            <h2>Venta</h2>
+                        </div>
+                        <div class="items_body">
+                            <h2>S/. 3.94</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="info_card_footer">
+                    <h2>Fecha 01/01/2021</h2>
+                </div>
+            </div>
+            <div class="info_card">
+                <div class="info_card_title">
+                    <h2>YENES 円</h2>
+                </div>
+                <div class="info_card_body">
+                    <div class="items">
+                        <div class="items_title">
+                            <h2>Compra</h2>
+                        </div>
+                        <div class="items_body">
+                            <h2>S/. 2.1</h2>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <div class="items_title">
+                            <h2>Venta</h2>
+                        </div>
+                        <div class="items_body">
+                            <h2>S/. 2.2</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="info_card_footer">
+                    <h2>Fecha 01/01/2021</h2>
+                </div>
+            </div>
+            <div class="info_card">
+                <div class="info_card_title">
+                    <h2>YENES 円</h2>
+                </div>
+                <div class="info_card_body">
+                    <div class="items">
+                        <div class="items_title">
+                            <h2>Compra</h2>
+                        </div>
+                        <div class="items_body">
+                            <h2>S/. 2.1</h2>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <div class="items_title">
+                            <h2>Venta</h2>
+                        </div>
+                        <div class="items_body">
+                            <h2>S/. 2.2</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="info_card_footer">
+                    <h2>Fecha 01/01/2021</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<footer>
+
+    <div class="footer_section">
+        <div id="social_links">
+            <i class="fa fa-facebook" style="font-size: 40px;color: white;"></i>
+            <i class="fa fa-twitter" style="font-size: 40px;color: white;"></i>
+            <i class="fa fa-youtube" style="font-size: 40px;color: white;"></i>
+            <i class="fa fa-book" style="font-size: 40px;color: white;"></i>
+        </div>
+    </div>
+    <div class="footer_section">
+        
+    </div>
+    <div class="footer_section">
+        <div id="promo">
+            <div id="promo_title">
+                <p>¿Deseas recibir las promociones a tu correo? Envianoslo!</p>
+            </div>
+            <div id="promo_email">
+                <input type="text" placeholder="example@hotmail.com">
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+<script>
+
+localStorage.setItem('Nombre', 'Miguel Antonio')
+let firstName = localStorage.getItem('Nombre')
+console.log(`Hola, mi nombre es ${firstName}`)
+  
+  $('.li').on('mouseover',function(){
+      $(this).css("color","orange");
+      $(this).css("transition","all 0.5s");
+  }).on('mouseout',function(){
+    $(this).css("color","white");
+  })
+
+  $('.fa').on('mouseover',function(){
+      $(this).css("transform","scale(1.5)");
+      $(this).css("transition","all 0.5s");
+  }).on('mouseout',function(){
+    $(this).css("transform","scale(1)");
+  })
+
+ /* $('.info_card').on('mouseover',function(){
+    $(this).css({"border": "solid orange 1px","transition": "all 0.5s"});
+    $(this).children(".info_card_title").css({"background-color": "orange","transition": "all 0.5s"});
+    $(this).children(".info_card_title").children("h2").css({"color": "rgba(2, 66, 240, 0.863)","transition": "all 0.5s"});
+    $(this).children(".info_card_body").css({"background-color": "rgba(2, 66, 240, 0.863)","transition": "all 0.5s"});
+    $(this).children(".info_card_body").find("h2").css({"color": "white"});
+    $(this).children(".info_card_footer").css({"background-color": "orange","transition": "all 0.5s"});
+    $(this).children(".info_card_footer").children("h2").css({"color": "rgba(2, 66, 240, 0.863)","transition": "all 0.5s"});
+  }).on('mouseout',function(){
+    $(this).css({"border": "solid rgba(2, 66, 240, 0.863) 1px"});
+    $(this).children(".info_card_title").css({"background-color": "rgba(2, 66, 240, 0.863)"});
+    $(this).children(".info_card_title").children("h2").css({"color": "white"});
+    $(this).children(".info_card_body").css({"background-color": "white"});
+    $(this).children(".info_card_body").find("h2").css({"color": "rgba(2, 66, 240, 0.863)"});
+    $(this).children(".info_card_footer").css({"background-color": "rgba(2, 66, 240, 0.863)"});
+    $(this).children(".info_card_footer").children("h2").css({"color": "white"});
+  })*/
+  $('.info_card').on('mouseover',function(){
+     
+    $(this).css({"border": "solid rgba(2, 66, 240, 0.863) 1px","transition": "all 0.5s"});
+    $(this).children(".info_card_title").css({"background-color": "rgba(2, 66, 240, 0.863)","transition": "all 0.5s"});
+    $(this).children(".info_card_title").children("h2").css({"color": "white","transition": "all 0.5s"});
+    $(this).children(".info_card_body").css({"background-color": "white","transition": "all 0.5s"});
+    $(this).children(".info_card_body").find("h2").css({"color": "rgba(2, 66, 240, 0.863)"});
+    $(this).children(".info_card_footer").css({"background-color": "rgba(2, 66, 240, 0.863)","transition": "all 0.5s"});
+    $(this).children(".info_card_footer").children("h2").css({"color": "white","transition": "all 0.5s"});
+  }).on('mouseout',function(){
+    $(this).css({"border": "solid orange 1px"});
+    $(this).children(".info_card_title").css({"background-color": "orange"});
+    $(this).children(".info_card_title").removeClass
+    $(this).children(".info_card_title").children("h2").css({"color": "white"});
+    $(this).children(".info_card_body").css({"background-color": "white"});
+    $(this).children(".info_card_body").find("h2").css({"color": "orange"});
+    $(this).children(".info_card_footer").css({"background-color": "orange"});
+    $(this).children(".info_card_footer").children("h2").css({"color": "white"});
+  })
+
+
+</script>
+
+</html>

@@ -1,0 +1,455 @@
+<html>
+<header>
+<title>Inicio</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/dark.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/plugins/timeline.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/plugins/bullets.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../css/dashboard_inicio.css">
+</header>
+<body>
+    <div id="container">
+        <div id="sidebar">
+            <div id="sidebar_logo">
+                <img src="../img/logo.png">
+            </div>
+            <div id="sidebar_links">
+                <ul style="width: 100%;height: 100%">
+                    <li class="primary_li">
+                        <a class="link">Tarjetas</a>
+                        <ul class="secondary_ul">
+                            <li class="secondary_li">
+                                <a>Gold</a>
+                            </li>
+                            <li class="secondary_li">
+                                <a>Platinum</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="primary_li">
+                        <a class="link">Préstamos</a>
+                        <ul class="secondary_ul">
+                            <li class="secondary_li">
+                                <a>Soles</a>
+                            </li>
+                            <li class="secondary_li">
+                                <a>Dólares</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="primary_li">
+                        <a class="link">Mantenimiento</a>
+                        <ul class="secondary_ul">
+                            <li class="secondary_li">
+                                <a>Tipos de Cambio</a>
+                            </li>
+                            <li class="secondary_li">
+                                <a>Listas de Valores</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div id="right_panel">
+            <div id="nav">
+                <div id="menu">
+                    <div id="menu_content">
+                        <div class="dropdown"><i class="fa fa-user fa-2x" style="margin-right: 1vw;"></i><a class="dropdown_text">Julio Acosta</a></div>
+                            <div class="dropdown_container">
+                                <div class="dropdown_items"><i class="fa fa-address-book"></i><a class="dropdown_text">Cuenta</a></div>
+                                <div class="dropdown_items"><i class="fa fa-close"></i><a class="dropdown_text">Cerrar Sesión</a></div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div id="content">
+               <div id="content_cards">
+                    <div class="card card-active" data-div="approvals">
+                        <h4 class="card-text card-text-active">Aprobaciones</h4>
+                        <img src="https://www.flaticon.com/svg/vstatic/svg/2728/2728203.svg?token=exp=1620411210~hmac=c3f778636e4e103a5708104598821adc">
+                    </div>
+                    <div class="card" data-div="revenue">
+                        <h4 class="card-text">Ingresos</h4>
+                        <img src="https://www.flaticon.es/svg/vstatic/svg/1101/1101587.svg?token=exp=1620411970~hmac=1bc0725e993903ae33a79d15c6f7d5a1">
+                    </div>
+                    <div class="card">
+                        <h4 class="card-text">Tarjetas Vendidas</h4>
+                        <img src="https://www.flaticon.com/premium-icon/icons/svg/2169/2169862.svg">
+                    </div>
+                    <div class="card">
+                        <h4 class="card-text">Nuevos Clientes</h4>
+                        <img src="https://www.flaticon.com/svg/vstatic/svg/686/686379.svg?token=exp=1620412478~hmac=aef8187a9e751cdaf3647d4ed88864d4">
+                    </div>
+               </div>
+               <div id="content_section">
+                    <div id="approvals" style="width: 80%;height: 100%;box-shadow: -1px 6px 13px 0px rgba(0,0,0,0.44);background-color: #30303d; color: #fff;">
+                        <div id="chartdiv" style="height: 100%;width: 100%;"></div>
+                    
+                    
+                    
+                    </div>
+                    <div id="revenue" style="width: 80%;height: 100%;box-shadow: -1px 6px 13px 0px rgba(0,0,0,0.44);display: none;background-color: #30303d; color: #fff;">
+                      <div id="chartdiv2" style="height: 100%;width: 100%;"></div>
+                    </div>
+               </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+
+    </footer>
+    
+</body>
+<script>
+    $('.link').on('click',function(){
+        $(this).siblings().toggle("fast")
+  })
+
+  $('.dropdown').on('click',function(){
+        $(this).siblings().toggle("fast")
+  })
+
+  $('.card').on('click',function(){
+    var data = $(this).data('div')
+    var flag = $(this).hasClass("card-active")
+    if(!flag){$('#'+data).toggle("fast")}
+    $('#'+data).siblings().css({"display":"none"})
+    $(this).addClass("card-active")
+    $(this).children("h4").addClass("card-text-active")
+    $(this).siblings().removeClass("card-active")
+    $(this).siblings().children("h4").removeClass("card-text-active")
+  })
+</script>
+<script>
+    am4core.ready(function() {
+    
+    // Themes begin
+    am4core.useTheme(am4themes_dark);
+    // Themes end
+    
+    var chart = am4core.create("chartdiv", am4charts.XYChart);
+    chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+    
+    chart.data = [
+      {
+        country: "Enero",
+        visits: 100
+      },
+      {
+        country: "Febrero",
+        visits: 200
+      },
+      {
+        country: "Marzo",
+        visits: 300
+      },
+      {
+        country: "Abril",
+        visits: 450
+      },
+      {
+        country: "Mayo",
+        visits: 500
+      },
+      {
+        country: "Junio",
+        visits: 310
+      },
+      {
+        country: "Julio",
+        visits: 356
+      },
+      {
+        country: "Agosto",
+        visits: 800
+      },
+      {
+        country: "Seiptiembre",
+        visits: 1000
+      },
+      {
+        country: "Octubre",
+        visits: 575
+      },
+      {
+        country: "Noviembre",
+        visits: 700
+      },
+      {
+        country: "Diciembre",
+        visits: 441
+      }
+    ];
+    
+    var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+    categoryAxis.renderer.grid.template.location = 0;
+    categoryAxis.dataFields.category = "country";
+    categoryAxis.renderer.minGridDistance = 40;
+    categoryAxis.fontSize = 11;
+    
+    var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+    valueAxis.min = 0;
+    valueAxis.max = 1000;
+    valueAxis.strictMinMax = true;
+    valueAxis.renderer.minGridDistance = 30;
+    // axis break
+    var axisBreak = valueAxis.axisBreaks.create();
+    axisBreak.startValue = 600;
+    axisBreak.endValue = 800;
+    //axisBreak.breakSize = 0.005;
+    
+    // fixed axis break
+    var d = (axisBreak.endValue - axisBreak.startValue) / (valueAxis.max - valueAxis.min);
+    axisBreak.breakSize = 0.05 * (1 - d) / d; // 0.05 means that the break will take 5% of the total value axis height
+    
+    // make break expand on hover
+    var hoverState = axisBreak.states.create("hover");
+    hoverState.properties.breakSize = 1;
+    hoverState.properties.opacity = 0.1;
+    hoverState.transitionDuration = 1500;
+    
+    axisBreak.defaultState.transitionDuration = 1000;
+    /*
+    // this is exactly the same, but with events
+    axisBreak.events.on("over", function() {
+      axisBreak.animate(
+        [{ property: "breakSize", to: 1 }, { property: "opacity", to: 0.1 }],
+        1500,
+        am4core.ease.sinOut
+      );
+    });
+    axisBreak.events.on("out", function() {
+      axisBreak.animate(
+        [{ property: "breakSize", to: 0.005 }, { property: "opacity", to: 1 }],
+        1000,
+        am4core.ease.quadOut
+      );
+    });*/
+    
+    var series = chart.series.push(new am4charts.ColumnSeries());
+    series.dataFields.categoryX = "country";
+    series.dataFields.valueY = "visits";
+    series.columns.template.tooltipText = "{valueY.value}";
+    series.columns.template.tooltipY = 0;
+    series.columns.template.strokeOpacity = 0;
+    
+    // as by default columns of the same series are of the same color, we add adapter which takes colors from chart.colors color set
+    series.columns.template.adapter.add("fill", function(fill, target) {
+      return chart.colors.getIndex(target.dataItem.index);
+    });
+    
+    }); // end am4core.ready()
+    </script>
+
+    <script>
+      am4core.ready(function() {
+      
+      // Themes begin
+      am4core.useTheme(am4themes_dark);
+      am4core.useTheme(am4themes_animated);
+      // Themes end
+      
+      var chart = am4core.create("chartdiv2", am4plugins_timeline.SerpentineChart);
+      chart.curveContainer.padding(100, 20, 50, 20);
+      chart.levelCount = 3;
+      chart.yAxisRadius = am4core.percent(20);
+      chart.yAxisInnerRadius = am4core.percent(2);
+      chart.maskBullets = false;
+      
+      var colorSet = new am4core.ColorSet();
+      
+      chart.dateFormatter.inputDateFormat = "yyyy-MM-dd HH:mm";
+      chart.dateFormatter.dateFormat = "HH";
+      
+      chart.data = [{
+          "category": "",
+          "start": "2019-01-10 06:00",
+          "end": "2019-01-10 07:00",
+          "color": colorSet.getIndex(15),
+          "icon": "https://www.amcharts.com/wp-content/uploads/assets/timeline/timeline0.svg"
+      }, {
+          "category": "",
+          "start": "2019-01-10 07:00",
+          "end": "2019-01-10 08:00",
+          "color": colorSet.getIndex(14),
+          "icon": "https://www.amcharts.com/wp-content/uploads/assets/timeline/timeline1.svg"
+      },
+      {
+          "category": "",
+          "start": "2019-01-10 08:00",
+          "end": "2019-01-10 09:00",
+          "color": colorSet.getIndex(13),
+          "icon": "https://www.amcharts.com/wp-content/uploads/assets/timeline/timeline2.svg"
+      },
+      {
+          "category": "",
+          "start": "2019-01-10 09:00",
+          "end": "2019-01-10 10:00",
+          "color": colorSet.getIndex(12),
+          "icon": "https://www.amcharts.com/wp-content/uploads/assets/timeline/timeline2.svg"
+      },
+      {
+          "category": "",
+          "start": "2019-01-10 10:00",
+          "end": "2019-01-10 12:00",
+          "color": colorSet.getIndex(11),
+          "icon": "https://www.amcharts.com/wp-content/uploads/assets/timeline/timeline2.svg"
+      },
+      {
+          "category": "",
+          "start": "2019-01-10 12:00",
+          "end": "2019-01-10 13:00",
+          "color": colorSet.getIndex(10),
+          "icon": "https://www.amcharts.com/wp-content/uploads/assets/timeline/timeline5.svg"
+      },
+      {
+          "category": "",
+          "start": "2019-01-10 13:00",
+          "end": "2019-01-10 14:00",
+          "color": colorSet.getIndex(9),
+          "icon": "https://www.amcharts.com/wp-content/uploads/assets/timeline/timeline4.svg"
+      },
+      {
+          "category": "",
+          "start": "2019-01-10 14:00",
+          "end": "2019-01-10 16:00",
+          "color": colorSet.getIndex(8),
+          "icon": "https://www.amcharts.com/wp-content/uploads/assets/timeline/timeline4.svg"
+      },
+      {
+          "category": "",
+          "start": "2019-01-10 16:00",
+          "end": "2019-01-10 17:00",
+          "color": colorSet.getIndex(7),
+          "icon": "https://www.amcharts.com/wp-content/uploads/assets/timeline/timeline4.svg"
+      },
+      {
+          "category": "",
+          "start": "2019-01-10 17:00",
+          "end": "2019-01-10 20:00",
+          "color": colorSet.getIndex(6),
+          "icon": "https://www.amcharts.com/wp-content/uploads/assets/timeline/timeline7.svg"
+      },
+      {
+          "category": "",
+          "start": "2019-01-10 20:00",
+          "end": "2019-01-10 20:30",
+          "color": colorSet.getIndex(5),
+          "icon": "https://www.amcharts.com/wp-content/uploads/assets/timeline/timeline7.svg"
+      },
+      {
+          "category": "",
+          "start": "2019-01-10 20:30",
+          "end": "2019-01-10 21:30",
+          "color": colorSet.getIndex(4),
+          "icon": "https://www.amcharts.com/wp-content/uploads/assets/timeline/timeline6.svg"
+      },
+      {
+          "category": "",
+          "start": "2019-01-10 21:30",
+          "end": "2019-01-10 22:00",
+          "color": colorSet.getIndex(3),
+          "icon": "https://www.amcharts.com/wp-content/uploads/assets/timeline/timeline6.svg"
+      },
+      {
+          "category": "",
+          "start": "2019-01-10 22:00",
+          "end": "2019-01-10 23:00",
+          "color": colorSet.getIndex(2),
+          "icon": "https://www.amcharts.com/wp-content/uploads/assets/timeline/timeline6.svg"
+      }];
+      
+      chart.fontSize = 10;
+      chart.tooltipContainer.fontSize = 10;
+      
+      var categoryAxis = chart.yAxes.push(new am4charts.CategoryAxis());
+      categoryAxis.dataFields.category = "category";
+      categoryAxis.renderer.grid.template.disabled = true;
+      categoryAxis.renderer.labels.template.paddingRight = 25;
+      categoryAxis.renderer.minGridDistance = 10;
+      
+      var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+      dateAxis.renderer.minGridDistance = 70;
+      dateAxis.baseInterval = { count: 30, timeUnit: "minute" };
+      dateAxis.renderer.tooltipLocation = 0;
+      dateAxis.renderer.line.strokeDasharray = "1,4";
+      dateAxis.renderer.line.strokeOpacity = 0.5;
+      dateAxis.tooltip.background.fillOpacity = 0.2;
+      dateAxis.tooltip.background.cornerRadius = 5;
+      dateAxis.tooltip.label.fill = new am4core.InterfaceColorSet().getFor("alternativeBackground");
+      dateAxis.tooltip.label.paddingTop = 7;
+      dateAxis.endLocation = 0;
+      dateAxis.startLocation = -0.5;
+      
+      var labelTemplate = dateAxis.renderer.labels.template;
+      labelTemplate.verticalCenter = "middle";
+      labelTemplate.fillOpacity = 0.4;
+      labelTemplate.background.fill = new am4core.InterfaceColorSet().getFor("background");
+      labelTemplate.background.fillOpacity = 1;
+      labelTemplate.padding(7, 7, 7, 7);
+      
+      var series = chart.series.push(new am4plugins_timeline.CurveColumnSeries());
+      series.columns.template.height = am4core.percent(15);
+      
+      series.dataFields.openDateX = "start";
+      series.dataFields.dateX = "end";
+      series.dataFields.categoryY = "category";
+      series.baseAxis = categoryAxis;
+      series.columns.template.propertyFields.fill = "color"; // get color from data
+      series.columns.template.propertyFields.stroke = "color";
+      series.columns.template.strokeOpacity = 0;
+      series.columns.template.fillOpacity = 0.6;
+      
+      var imageBullet1 = series.bullets.push(new am4plugins_bullets.PinBullet());
+      imageBullet1.locationX = 1;
+      imageBullet1.propertyFields.stroke = "color";
+      imageBullet1.background.propertyFields.fill = "color";
+      imageBullet1.image = new am4core.Image();
+      imageBullet1.image.propertyFields.href = "icon";
+      imageBullet1.image.scale = 0.5;
+      imageBullet1.circle.radius = am4core.percent(100);
+      imageBullet1.dy = -5;
+      
+      
+      var textBullet = series.bullets.push(new am4charts.LabelBullet());
+      textBullet.label.propertyFields.text = "text";
+      textBullet.disabled = true;
+      textBullet.propertyFields.disabled = "textDisabled";
+      textBullet.label.strokeOpacity = 0;
+      textBullet.locationX = 1;
+      textBullet.dy = - 100;
+      textBullet.label.textAlign = "middle";
+      
+      chart.scrollbarX = new am4core.Scrollbar();
+      chart.scrollbarX.align = "center"
+      chart.scrollbarX.width = am4core.percent(75);
+      chart.scrollbarX.opacity = 0.5;
+      
+      var cursor = new am4plugins_timeline.CurveCursor();
+      chart.cursor = cursor;
+      cursor.xAxis = dateAxis;
+      cursor.yAxis = categoryAxis;
+      cursor.lineY.disabled = true;
+      cursor.lineX.strokeDasharray = "1,4";
+      cursor.lineX.strokeOpacity = 1;
+      
+      dateAxis.renderer.tooltipLocation2 = 0;
+      categoryAxis.cursorTooltipEnabled = false;
+      
+      }); // end am4core.ready()
+      </script>
+</html>

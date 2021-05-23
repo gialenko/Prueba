@@ -1,0 +1,299 @@
+<html>
+<header>
+<title>Inicio</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/themes/dark.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/plugins/timeline.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/plugins/bullets.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../css/dashboard_medicina.css">
+</header>
+<body>
+    <div id="container">
+        <div id="sidebar">
+            <div id="sidebar_logo">
+                <img src="../img/logo.png">
+            </div>
+            <div id="sidebar_links">
+                <ul style="width: 100%;height: 100%">
+                    <li class="primary_li">
+                        <a class="link">Tarjetas</a>
+                        <ul class="secondary_ul">
+                            <li class="secondary_li">
+                                <a>Gold</a>
+                            </li>
+                            <li class="secondary_li">
+                                <a>Platinum</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="primary_li">
+                        <a class="link">Préstamos</a>
+                        <ul class="secondary_ul">
+                            <li class="secondary_li">
+                                <a>Soles</a>
+                            </li>
+                            <li class="secondary_li">
+                                <a>Dólares</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="primary_li">
+                        <a class="link">Mantenimiento</a>
+                        <ul class="secondary_ul">
+                            <li class="secondary_li">
+                                <a>Tipos de Cambio</a>
+                            </li>
+                            <li class="secondary_li">
+                                <a>Listas de Valores</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div id="right_panel">
+            <div id="nav">
+                <div id="menu">
+                    <div id="menu_content">
+                        <div class="dropdown"><i class="fa fa-user fa-2x" style="margin-right: 1vw;"></i><a class="dropdown_text">Julio Acosta</a></div>
+                            <div class="dropdown_container">
+                                <div class="dropdown_items"><i class="fa fa-address-book"></i><a class="dropdown_text">Cuenta</a></div>
+                                <div class="dropdown_items"><i class="fa fa-close"></i><a class="dropdown_text">Cerrar Sesión</a></div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div id="content">
+               <div id="content_cards">
+                <div style="height: 90%;width: 80%;align-items: flex-start;justify-content: flex-start;display: flex;flex-direction: column;box-shadow: -1px 6px 13px 0px rgba(0,0,0,0.44);">
+                    <div style="height: 33%;width: 100%;align-items: center;justify-content: center;display: flex;">
+                        <div style="width: 50%;height: 50%;align-items: center;justify-content: center;display: flex;">
+                            <label style="width: 30%;">Descripción</label>
+                            <input style="height: 70%;box-sizing: border-box;padding-left: 3%;">
+                        </div>
+                        <div style="width: 50%;height: 50%;align-items: center;justify-content: center;display: flex;">
+                            <label style="width: 30%;">Cantidad</label>
+                            <input style="height: 70%;box-sizing: border-box;padding-left: 3%;">
+                        </div>
+                    </div>
+                    <div style="height: 33%;width: 100%;align-items: center;justify-content: center;display: flex;">
+                        <div style="width: 50%;height: 50%;align-items: center;justify-content: center;display: flex;">
+                            <label style="width: 30%;">Precio</label>
+                            <input style="height: 70%;box-sizing: border-box;padding-left: 3%;">
+                        </div>
+                        <div style="width: 50%;height: 50%;align-items: center;justify-content: center;display: flex;">
+                            <label style="width: 30%;">Estado</label>
+                            <input style="height: 70%;box-sizing: border-box;padding-left: 3%;">
+                        </div>
+                    </div>
+                    <div style="height: 33%;width: 100%;align-items: center;justify-content: center;display: flex;">
+                       <button style="box-shadow: -1px 6px 13px 0px rgba(0,0,0,0.44);background-color: white;width: 20%;height: 35%;border: white;margin:5%;">Buscar</button>
+                    </div>
+                </div>
+               </div>
+               <div id="content_section">
+                   <div style="width: 80%;height: 10%;align-items: flex-start;justify-content: left;display: flex;">
+                        <div style="width: 20%;height: auto;position: absolute;">
+                            <div class="dropdown"><i class="fa fa-chevron-circle-down fa-1x" style="margin-right: 1vw;"></i><a class="dropdown_text">Mostrar/Ocultar</a></div>
+                            <div class="dropdown_container">
+                                <div class="dropdown_items column_link" style="cursor: pointer;" data-columna="descripcion"><i class="fa fa-check"></i><a class="dropdown_text" style="color:black">Descripción</a></div>
+                                <div class="dropdown_items column_link" style="cursor: pointer;" data-columna="precio"><i class="fa fa-check"></i><a class="dropdown_text" style="color:black">Precio</a></div>
+                                <div class="dropdown_items column_link" style="cursor: pointer;" data-columna="unidad_medida"><i class="fa fa-check"></i><a class="dropdown_text" style="color:black">Unidad Medida</a></div>
+                            </div>
+                        </div>
+                   </div>
+                   <table id="table" CELLSPACING=0>
+                        <thead>
+                            <tr style="background-color: rgba(49, 51, 54, 0.863);pointer-events: none;">
+                                <th class="codigo" style="text-align: center;border: 1px solid #ddd;padding: 8px;color: white;display: none;">Código</th>
+                                <th class="descripcion" style="text-align: center;border: 1px solid #ddd;padding: 8px;color: white;">Descripción</th>
+                                <th class="precio" style="text-align: center;border: 1px solid #ddd;padding: 8px;color: white;">Precio</th>
+                                <th class="unidad_medida" style="text-align: center;border: 1px solid #ddd;padding: 8px;color: white;">Unidad Medida</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody">
+                           <!-- <tr style="border: solid red 1px;">
+                                <td class="codigo" style="text-align: center;border: 1px solid #ddd;padding: 8px;">1</td>
+                                <td class="descripcion" style="text-align: center;border: 1px solid #ddd;padding: 8px;">Pastilla</td>
+                                <td style="text-align: center;border: 1px solid #ddd;padding: 8px;">20.5</td>
+                                <td style="text-align: center;border: 1px solid #ddd;padding: 8px;">150</td>
+                            </tr>-->
+                        </tbody>
+                   </table>
+                   <div style="width: 80%;height: 10%;box-shadow: -1px 6px 13px 0px rgba(0,0,0,0.44);align-items: center;justify-content: center;display: flex;">
+                        <div style="width: auto;justify-content: center;align-items: center;display: flex;">
+                            <ul style="justify-content: center;align-items: center;display: flex;">
+                                <li style="list-style: none;cursor: pointer;margin: 10%;" class="li-action"><span>1</span></li>
+                                <li style="list-style: none;cursor: pointer;margin: 10%;" class="li-action"><span>2</span></li>
+                                <li style="list-style: none;cursor: pointer;margin: 10%;" class="li-action"><span>3</span></li>
+                            </ul>
+                        </div>
+                   </div>
+                   <div class="loader" style="position: absolute;display: none;margin: 0 auto"></div>
+               </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--Inicio del modal-->
+
+    <div id="modal" style="position: absolute;width: 50vw;height: 50vh;margin-top: 25vh;background-color: white;align-items: flex-start;justify-content: flex-start;display: flex;flex-direction: column;box-shadow: -1px 6px 13px 0px rgba(0,0,0,0.44);padding: 1%;
+    ">
+        <div style="height: 10%;width: 100%;">
+            <h3 style="height: 100%;text-align: center;">Código Interno: C01X03231</h3>
+        </div>
+        <div style="height: 90%;width: 100%;align-items: flex-start;justify-content: flex-start;display: flex;flex-direction: column;">
+            <div style="height: 30%;width: 100%;align-items: center;justify-content: center;display: flex;">
+                <div style="width: 50%;height: 50%;align-items: center;justify-content: center;display: flex;">
+                    <label style="width: 30%;">Descripción</label>
+                    <input style="height: 70%;box-sizing: border-box;padding-left: 3%;">
+                </div>
+                <div style="width: 50%;height: 50%;align-items: center;justify-content: center;display: flex;">
+                    <label style="width: 30%;">Cantidad</label>
+                    <input style="height: 70%;box-sizing: border-box;padding-left: 3%;">
+                </div>
+            </div>
+            <div style="height: 30%;width: 100%;align-items: center;justify-content: center;display: flex;">
+                <div style="width: 50%;height: 50%;align-items: center;justify-content: center;display: flex;">
+                    <label style="width: 30%;">Precio</label>
+                    <input style="height: 70%;box-sizing: border-box;padding-left: 3%;">
+                </div>
+                <div style="width: 50%;height: 50%;align-items: center;justify-content: center;display: flex;">
+                    <label style="width: 30%;">Estado</label>
+                    <input style="height: 70%;box-sizing: border-box;padding-left: 3%;">
+                </div>
+            </div>
+            <div style="height: 30%;width: 100%;align-items: center;justify-content: center;display: flex;">
+               <button style="box-shadow: -1px 6px 13px 0px rgba(0,0,0,0.44);background-color: white;width: 20%;height: 35%;border: white;margin:5%;">Guardar</button>
+               <button id="btnclose" style="box-shadow: -1px 6px 13px 0px rgba(0,0,0,0.44);background-color: white;width: 20%;height: 35%;border: white;margin: 5%;">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--Fin del modal-->
+
+    <footer>
+
+    </footer>
+    
+</body>
+<script>
+
+    $(window).on('load',function(){
+        loadMedicina(0);
+    })
+
+    
+    $('.li-action').on('click',function(){
+        var offset = $(this).children('span').text();
+        loadMedicina(offset);
+    })
+
+    function loadMedicina(offset){
+        var new_tbody = document.getElementById('tbody');
+        
+        fetch('https://apex.oracle.com/pls/apex/cibertec_api/hospital/medicina/?offset='+offset+'&limit=5')
+        .then(response => response.json())
+        .then(data => {
+        
+        for (const medicina of data.items) 
+        {
+            var tr = document.createElement('tr');
+            /*Código*/
+            var codigo = document.createElement('td');
+            var codigo_val = document.createTextNode(medicina.id);
+            codigo.style.display='none';
+            codigo.appendChild(codigo_val);
+            /*Descripcion*/
+            var descripcion = document.createElement('td');
+            var descripcion_val = document.createTextNode(medicina.descripcion);
+            descripcion.className = "descripcion";
+            descripcion.appendChild(descripcion_val);
+            /*Precio*/
+            var precio = document.createElement('td');
+            var precio_val = document.createTextNode(medicina.precio);
+            precio.className = "precio";
+            precio.appendChild(precio_val);
+            /*Unidad Medida*/
+            var unidad = document.createElement('td');
+            var unidad_val = document.createTextNode(medicina.unidad_medida);
+            unidad.className = "unidad_medida";
+            unidad.appendChild(unidad_val);
+
+            tr.appendChild(codigo);
+            tr.appendChild(descripcion);
+            tr.appendChild(precio);
+            tr.appendChild(unidad);
+            document.getElementById('tbody').appendChild(tr);
+        }
+        }); 
+    }
+
+
+    $('.codigo').on('click',function(){
+        $('#modal').css({"display":"block"})
+    })
+
+    $('#btnclose').on('click',function(){
+        $('#modal').css({"display":"none"})
+    })
+
+    $('.column_link').on('click',function(){
+        var data = $(this).data('columna');
+        var codigos = document.getElementsByClassName(''+data); 
+        var flag = $(this).children("i").hasClass("fa-check");
+        if(flag){
+            $(this).children("i").removeClass("fa-check").addClass("fa-close");
+            for(var i = 0;i<codigos.length;i++){
+                codigos[i].style.display='none';
+            }
+        }
+        else
+        {
+            $(this).children("i").removeClass("fa-close").addClass("fa-check");
+            for(var i = 0;i<codigos.length;i++){
+                codigos[i].style.display='';
+            }
+        }
+    })
+
+  /*  $('tr').on('click',function(){
+        $('.loader').css({"display":"block"})
+        $('#table').css({"opacity":"0.5","pointer-events":"none"})
+  })*/
+
+    $('.link').on('click',function(){
+        $(this).siblings().toggle("fast")
+  })
+
+  $('.dropdown').on('click',function(){
+        $(this).siblings().toggle("fast")
+  })
+
+  $('.card').on('click',function(){
+    var data = $(this).data('div')
+    var flag = $(this).hasClass("card-active")
+    if(!flag){$('#'+data).toggle("fast")}
+    $('#'+data).siblings().css({"display":"none"})
+    $(this).addClass("card-active")
+    $(this).children("h4").addClass("card-text-active")
+    $(this).siblings().removeClass("card-active")
+    $(this).siblings().children("h4").removeClass("card-text-active")
+  })
+</script>
+
+</html>

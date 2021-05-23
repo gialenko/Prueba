@@ -1,0 +1,311 @@
+<html>
+<header>
+<title>Inicio</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</header>
+<style>
+*{padding: 0;margin: 0px;font-family: 'Roboto', sans-serif;}
+body{
+    width: 100vw;
+    
+    height: 100vh;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    overflow-x: hidden;}
+nav{
+    width: 100vw;
+    position: fixed;
+    height: 10vh;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    z-index: 1000;
+    background-color: rgba(2, 66, 240, 0.863);
+}
+#logo{
+    width: 20vw;
+    height: 10vh;
+    position: relative;
+}
+#menu{
+    width: 80vw;
+    height: 10vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#logo >img{
+width: 100%;
+height: 100%;
+border-radius: 50%;
+}
+
+ul{
+    display: inline-flex;
+    list-style: none;
+}
+
+li{
+    min-width: 13vw;
+    width: 12vw;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 8vh;
+}
+
+li>a{
+    color: black;
+    text-align: center;
+}
+
+#content{
+    position: relative;
+    width: 100vw;
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-top: 10vh;
+}
+#section{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    top: 100vh;
+    background-color: white;
+}
+
+#information{
+    width: 50vw;
+    height: 60vh;
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+#info-title{
+    width: 100%;
+    height: 5vh;
+    border-bottom: solid green 1px;
+}
+
+#info-title>h1{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#logo_tipo_cambio{
+    background-image: url(../img/tipo_cambio.jpg);
+    background-size: 100vw 60vh;
+    position: absolute;
+    height: 60vh;
+    width: 100%;
+    top: 0;
+}
+
+#grilla{
+    width: 80vw;
+    height: auto;
+}
+
+th,td{
+    border: solid silver 1px;
+    text-align: center;
+}
+
+td:hover{
+    border: none;
+    outline: none;
+    background-color: honeydew;
+}
+
+td:focus{
+    border: none;
+    outline: none;
+}
+
+.is-changed{
+    background-color:tomato;
+}
+
+
+a:hover{
+    cursor: pointer;
+}
+
+::-webkit-input-placeholder {
+   text-align: center;
+}
+input{
+    text-align: center;
+    outline: none;
+}
+
+</style>
+<body id="body">
+<nav>
+    <div id="logo">
+        <img src="../img/dragon.jpg">
+    </div>
+    <div id="menu">
+        <ul>
+            <li><a class="li">Inicio</a></li>
+            <li><a class="li">Préstamos</a></li>
+            <li><a class="li">Abre tu Cuenta</a></li>
+            <li><a class="li">Conócenos</a></li>
+            <li><a class="li">Trabaja con Nosotros</a></li>
+        </ul>
+    </div>
+</nav>
+<div id="content">
+    <div id="logo_tipo_cambio">
+        <h1 style="position: absolute;bottom: 0;left: 0;color: white;">Tipos de Cambio</h1>
+    </div>
+    <div id="grilla">
+        <table id="table" style="border:solid silver 1px;margin: 0;padding: 0;width: 100%;" border=0 cellspacing=0;>
+            <thead>
+                <tr>
+                    <th style="width: 8%;height: 40px;">
+                        <input type="text" style="width: 100%;height: 40px;cursor: pointer;" onclick="AddRow()" value="+" readonly>
+                    </th>
+                    <th style="width: 23%;">MONEDA ORIGEN</th>
+                    <th style="width: 23%;">MONEDA DESTINO</th>
+                    <th style="width: 23%;">TIPO CAMBIO</th>
+                    <th style="width: 23%;">FECHA CAMBIO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="width: 8%;">
+                        <input type="text" style="width: 100%;height: 40px;cursor: pointer;" onclick="DeleteRow(this)" value="-" readonly>
+                    </td>
+                    <td class="row" style="width: 22%;" contenteditable="true">
+                    <select style="width: 100%;height: 40px;" class="moneda">
+                        <option></option>
+                    </select>
+                    </td>
+                    <td class="row" style="width: 22%;" contenteditable="true">
+                        <select style="width: 100%;height: 40px;" class="moneda">
+                            <option></option>
+                        </select>
+                    </td>
+                    <td class="row" style="width: 22%;" contenteditable="true">
+                        <input type="text" style="width: 100%;height: 40px;" placeholder="0.0">
+                    </td>
+                    <td class="row" style="width: 22%" contenteditable="true" >
+                        <input type="text" style="width: 100%;height: 40px;" placeholder="DD-MM-YYYY">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div id="section">
+    <div id="information">
+        <div id="info-title">
+            <h1>Préstamos disponibles</h1>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<footer>
+
+</footer>
+
+<script>
+
+   function AddRow(){
+        var table = document.getElementById("table");
+        var row = table.insertRow(-1);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        var cell5 = row.insertCell(4);
+        cell1.innerHTML = "<input type='text' style='width: 100%;height: 40px;cursor: pointer;' onclick='DeleteRow(this)' value='-' readonly>";
+        cell2.innerHTML = "<select class='moneda_origen' style='width: 100%;height: 40px;'>"+
+                            "<option></option>"+
+                            "</select>";
+        cell2.contentEditable = true;
+        cell3.innerHTML = "<select style='width: 100%;height: 40px;'>"+
+                            "<option></option>"+
+                            "<option>PEN</option>"+
+                            "<option>USD</option>"+
+                            "</select>";
+        cell3.contentEditable = true;
+        cell4.innerHTML = "<input type='text' style='width: 100%;height: 40px;' placeholder='0.0'>";
+        cell4.contentEditable = true;
+        cell5.innerHTML = "<input type='text' style='width: 100%;height: 40px;' placeholder='DD-MM-YYYY'>";
+        cell5.contentEditable = true;
+       
+    }
+
+    $('.li').on('mouseover',function(){
+        $(this).css("color","white"); 
+    }).on('mouseout',function(){
+        $(this).css("color","black"); 
+    });
+
+    $('.row').on('focus', function() {
+  before = $(this).html();
+}).on('blur keyup paste', function() { 
+  if (before != $(this).html()) { $(this).trigger('change');}
+});
+
+$('.row').on('change', function() {
+    var x = $(this).parentsUntil("tbody").addClass("is-changed");
+    
+}); 
+
+
+function DeleteRow(r){
+    var i = r.parentNode.parentNode.rowIndex;
+  document.getElementById("table").deleteRow(i);
+}
+  
+
+  fetch('http://localhost:8080/api/tipoDePrestamo?moneda=USD')
+  .then(response => response.json())
+  .then(data => {
+    for (const prestamo of data) {
+        //var x = document.getElementsByClassName("moneda");
+        alert(prestamo.moneda.moneda);
+    }
+    }); 
+
+
+  /*var data = {MONEDA_ORIGEN: 255807579239190455102856558501515518798,
+              MONEDA_DESTINO: 255807579239188037251217329243166106446,
+              TIPO_CAMBIO: 3,
+              FECHA_CAMBIO: '01-04-2021'};
+  fetch('https://apex.oracle.com/pls/apex/cibertec_api/banco/tipo_cambio/', {
+  method: 'POST', // or 'PUT'
+  body: JSON.stringify(data), // data can be `string` or {object}!
+  mode: "cors",
+  cache: "default",
+  headers:{
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  }});*/
+
+
+</script>
+
+</html>

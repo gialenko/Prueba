@@ -1,0 +1,179 @@
+<html>
+<header>
+<title>Inicio</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</header>
+<style>
+*{padding: 0;margin: 0px;}
+body{
+    width: 100vw;
+    background-color: orangered;
+    height: 100vh;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    overflow-x: hidden;}
+nav{
+    width: 100vw;
+    position: absolute;
+    height: 10vh;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    z-index: 1000;
+}
+#logo{
+    width: 20vw;
+    height: 10vh;
+    position: relative;
+}
+#menu{
+    width: 80vw;
+    height: 10vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#logo >img{
+width: 100%;
+height: 100%;
+border-radius: 50%;
+}
+
+ul{
+    display: inline-flex;
+    list-style: none;
+}
+
+li{
+    min-width: 13vw;
+    width: 12vw;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 8vh;
+    background-color: grey;
+}
+
+li>a{
+    color: black;
+    text-align: center;
+}
+
+li>a:hover{
+    color: black;
+}
+
+li:hover{
+    background-color: white;
+    cursor: pointer;
+}
+
+#content{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+   
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+#section{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    top: 100vh;
+    background-color: white;
+}
+
+#information{
+    width: 50vw;
+    height: 60vh;
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+#info-title{
+    width: 100%;
+    height: 5vh;
+    border-bottom: solid green 1px;
+}
+
+#info-title>h1{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+</style>
+<body>
+<nav>
+    <div id="logo">
+        <img src="../img/dragon.jpg">
+    </div>
+    <div id="menu">
+        <ul>
+            <li><a>Inicio</a></li>
+            <li><a>Préstamos</a></li>
+            <li><a>Abre tu Cuenta</a></li>
+            <li><a>Conócenos</a></li>
+            <li><a>Trabaja con Nosotros</a></li>
+        </ul>
+    </div>
+</nav>
+<div id="content">
+    <img src="../img/naruto.jpeg" height="100%" width="100%">
+</div>
+<div id="section">
+    <div id="information">
+        <div id="info-title">
+            <h1>Préstamos disponibles</h1>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<footer>
+
+</footer>
+
+<script>
+ 
+  /* fetch('https://apex.oracle.com/pls/apex/cibertec_api/banco/moneda')
+  .then(response => response.json())
+  .then(data => {
+    for (const moneda of data.items) {
+
+          alert(moneda.moneda);
+
+    }
+  }); */
+
+  /*var data = {MONEDA_ORIGEN: 255807579239190455102856558501515518798,
+              MONEDA_DESTINO: 255807579239188037251217329243166106446,
+              TIPO_CAMBIO: 3,
+              FECHA_CAMBIO: '01-04-2021'};
+  fetch('https://apex.oracle.com/pls/apex/cibertec_api/banco/tipo_cambio/', {
+  method: 'POST', // or 'PUT'
+  body: JSON.stringify(data), // data can be `string` or {object}!
+  mode: "cors",
+  cache: "default",
+  headers:{
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  }});*/
+
+
+</script>
+
+</html>
